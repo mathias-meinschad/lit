@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/lit.dir/main.cpp.o CMakeFiles/lit.dir/Tree/Tree.cpp.o CMakeFiles/lit.dir/Commit/Commit.cpp.o CMakeFiles/lit.dir/Blob/Blob.cpp.o CMakeFiles/lit.dir/Lit/LitCommands.cpp.o  -o lit 

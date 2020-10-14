@@ -1,0 +1,3 @@
+/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles/lit.dir
