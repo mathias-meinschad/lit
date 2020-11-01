@@ -3,6 +3,8 @@
 
 #endif // LIT_LITCOMMANDS_H
 
+void executeClear();
+
 void executeCommit(int args, char **argv);
 
 void executeHelp(int args, char **argv);

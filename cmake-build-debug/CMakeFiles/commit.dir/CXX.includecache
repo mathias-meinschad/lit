@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mottl/workspace/lit/Commit/Commit.cpp
+Commit.h
+/home/mottl/workspace/lit/Commit/Commit.h
+fstream
+-
+iostream
+-
+utility
+-
+
+/home/mottl/workspace/lit/Commit/Commit.h
+../Lit/LitStructs.h
+/home/mottl/workspace/lit/Lit/LitStructs.h
+list
+-
+string
+-
+
+/home/mottl/workspace/lit/Lit/LitStructs.h
+string
+-
+

@@ -77,90 +77,36 @@ include CMakeFiles/lit.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lit.dir/flags.make
 
-CMakeFiles/lit.dir/main.cpp.o: CMakeFiles/lit.dir/flags.make
-CMakeFiles/lit.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lit.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lit.dir/main.cpp.o -c /home/mottl/workspace/lit/main.cpp
+CMakeFiles/lit.dir/lit.cpp.o: CMakeFiles/lit.dir/flags.make
+CMakeFiles/lit.dir/lit.cpp.o: ../lit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lit.dir/lit.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lit.dir/lit.cpp.o -c /home/mottl/workspace/lit/lit.cpp
 
-CMakeFiles/lit.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lit.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mottl/workspace/lit/main.cpp > CMakeFiles/lit.dir/main.cpp.i
+CMakeFiles/lit.dir/lit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lit.dir/lit.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mottl/workspace/lit/lit.cpp > CMakeFiles/lit.dir/lit.cpp.i
 
-CMakeFiles/lit.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lit.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mottl/workspace/lit/main.cpp -o CMakeFiles/lit.dir/main.cpp.s
-
-CMakeFiles/lit.dir/Tree/Tree.cpp.o: CMakeFiles/lit.dir/flags.make
-CMakeFiles/lit.dir/Tree/Tree.cpp.o: ../Tree/Tree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lit.dir/Tree/Tree.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lit.dir/Tree/Tree.cpp.o -c /home/mottl/workspace/lit/Tree/Tree.cpp
-
-CMakeFiles/lit.dir/Tree/Tree.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lit.dir/Tree/Tree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mottl/workspace/lit/Tree/Tree.cpp > CMakeFiles/lit.dir/Tree/Tree.cpp.i
-
-CMakeFiles/lit.dir/Tree/Tree.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lit.dir/Tree/Tree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mottl/workspace/lit/Tree/Tree.cpp -o CMakeFiles/lit.dir/Tree/Tree.cpp.s
-
-CMakeFiles/lit.dir/Commit/Commit.cpp.o: CMakeFiles/lit.dir/flags.make
-CMakeFiles/lit.dir/Commit/Commit.cpp.o: ../Commit/Commit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lit.dir/Commit/Commit.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lit.dir/Commit/Commit.cpp.o -c /home/mottl/workspace/lit/Commit/Commit.cpp
-
-CMakeFiles/lit.dir/Commit/Commit.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lit.dir/Commit/Commit.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mottl/workspace/lit/Commit/Commit.cpp > CMakeFiles/lit.dir/Commit/Commit.cpp.i
-
-CMakeFiles/lit.dir/Commit/Commit.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lit.dir/Commit/Commit.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mottl/workspace/lit/Commit/Commit.cpp -o CMakeFiles/lit.dir/Commit/Commit.cpp.s
-
-CMakeFiles/lit.dir/Blob/Blob.cpp.o: CMakeFiles/lit.dir/flags.make
-CMakeFiles/lit.dir/Blob/Blob.cpp.o: ../Blob/Blob.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lit.dir/Blob/Blob.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lit.dir/Blob/Blob.cpp.o -c /home/mottl/workspace/lit/Blob/Blob.cpp
-
-CMakeFiles/lit.dir/Blob/Blob.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lit.dir/Blob/Blob.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mottl/workspace/lit/Blob/Blob.cpp > CMakeFiles/lit.dir/Blob/Blob.cpp.i
-
-CMakeFiles/lit.dir/Blob/Blob.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lit.dir/Blob/Blob.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mottl/workspace/lit/Blob/Blob.cpp -o CMakeFiles/lit.dir/Blob/Blob.cpp.s
-
-CMakeFiles/lit.dir/Lit/LitCommands.cpp.o: CMakeFiles/lit.dir/flags.make
-CMakeFiles/lit.dir/Lit/LitCommands.cpp.o: ../Lit/LitCommands.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lit.dir/Lit/LitCommands.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lit.dir/Lit/LitCommands.cpp.o -c /home/mottl/workspace/lit/Lit/LitCommands.cpp
-
-CMakeFiles/lit.dir/Lit/LitCommands.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lit.dir/Lit/LitCommands.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mottl/workspace/lit/Lit/LitCommands.cpp > CMakeFiles/lit.dir/Lit/LitCommands.cpp.i
-
-CMakeFiles/lit.dir/Lit/LitCommands.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lit.dir/Lit/LitCommands.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mottl/workspace/lit/Lit/LitCommands.cpp -o CMakeFiles/lit.dir/Lit/LitCommands.cpp.s
+CMakeFiles/lit.dir/lit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lit.dir/lit.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mottl/workspace/lit/lit.cpp -o CMakeFiles/lit.dir/lit.cpp.s
 
 # Object files for target lit
 lit_OBJECTS = \
-"CMakeFiles/lit.dir/main.cpp.o" \
-"CMakeFiles/lit.dir/Tree/Tree.cpp.o" \
-"CMakeFiles/lit.dir/Commit/Commit.cpp.o" \
-"CMakeFiles/lit.dir/Blob/Blob.cpp.o" \
-"CMakeFiles/lit.dir/Lit/LitCommands.cpp.o"
+"CMakeFiles/lit.dir/lit.cpp.o"
 
 # External object files for target lit
 lit_EXTERNAL_OBJECTS =
 
-lit: CMakeFiles/lit.dir/main.cpp.o
-lit: CMakeFiles/lit.dir/Tree/Tree.cpp.o
-lit: CMakeFiles/lit.dir/Commit/Commit.cpp.o
-lit: CMakeFiles/lit.dir/Blob/Blob.cpp.o
-lit: CMakeFiles/lit.dir/Lit/LitCommands.cpp.o
+lit: CMakeFiles/lit.dir/lit.cpp.o
 lit: CMakeFiles/lit.dir/build.make
+lit: libcommit.a
+lit: liblitCommands.a
+lit: libshellCommands.a
+lit: libfileSystemHelper.a
+lit: libconstants.a
+lit: libcommit.a
 lit: CMakeFiles/lit.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable lit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable lit"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lit.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

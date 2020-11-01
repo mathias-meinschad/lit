@@ -74,6 +74,12 @@ CMAKE_BINARY_DIR = /home/mottl/workspace/lit/cmake-build-debug
 
 # The main recursive "all" target.
 all: CMakeFiles/lit.dir/all
+all: CMakeFiles/litCommands.dir/all
+all: CMakeFiles/shellCommands.dir/all
+all: CMakeFiles/listStructs.dir/all
+all: CMakeFiles/commit.dir/all
+all: CMakeFiles/constants.dir/all
+all: CMakeFiles/fileSystemHelper.dir/all
 
 .PHONY : all
 
@@ -84,6 +90,12 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/lit.dir/clean
+clean: CMakeFiles/litCommands.dir/clean
+clean: CMakeFiles/shellCommands.dir/clean
+clean: CMakeFiles/listStructs.dir/clean
+clean: CMakeFiles/commit.dir/clean
+clean: CMakeFiles/constants.dir/clean
+clean: CMakeFiles/fileSystemHelper.dir/clean
 
 .PHONY : clean
 
@@ -91,15 +103,19 @@ clean: CMakeFiles/lit.dir/clean
 # Target rules for target CMakeFiles/lit.dir
 
 # All Build rule for target.
-CMakeFiles/lit.dir/all:
+CMakeFiles/lit.dir/all: CMakeFiles/litCommands.dir/all
+CMakeFiles/lit.dir/all: CMakeFiles/shellCommands.dir/all
+CMakeFiles/lit.dir/all: CMakeFiles/commit.dir/all
+CMakeFiles/lit.dir/all: CMakeFiles/constants.dir/all
+CMakeFiles/lit.dir/all: CMakeFiles/fileSystemHelper.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target lit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target lit"
 .PHONY : CMakeFiles/lit.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/lit.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lit.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/lit.dir/rule
@@ -113,6 +129,170 @@ lit: CMakeFiles/lit.dir/rule
 CMakeFiles/lit.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/clean
 .PHONY : CMakeFiles/lit.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/litCommands.dir
+
+# All Build rule for target.
+CMakeFiles/litCommands.dir/all: CMakeFiles/shellCommands.dir/all
+CMakeFiles/litCommands.dir/all: CMakeFiles/commit.dir/all
+CMakeFiles/litCommands.dir/all: CMakeFiles/fileSystemHelper.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=11,12,13 "Built target litCommands"
+.PHONY : CMakeFiles/litCommands.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/litCommands.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/litCommands.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/litCommands.dir/rule
+
+# Convenience name for target.
+litCommands: CMakeFiles/litCommands.dir/rule
+
+.PHONY : litCommands
+
+# clean rule for target.
+CMakeFiles/litCommands.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/clean
+.PHONY : CMakeFiles/litCommands.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/shellCommands.dir
+
+# All Build rule for target.
+CMakeFiles/shellCommands.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shellCommands.dir/build.make CMakeFiles/shellCommands.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shellCommands.dir/build.make CMakeFiles/shellCommands.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=14,15 "Built target shellCommands"
+.PHONY : CMakeFiles/shellCommands.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/shellCommands.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/shellCommands.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/shellCommands.dir/rule
+
+# Convenience name for target.
+shellCommands: CMakeFiles/shellCommands.dir/rule
+
+.PHONY : shellCommands
+
+# clean rule for target.
+CMakeFiles/shellCommands.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shellCommands.dir/build.make CMakeFiles/shellCommands.dir/clean
+.PHONY : CMakeFiles/shellCommands.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/listStructs.dir
+
+# All Build rule for target.
+CMakeFiles/listStructs.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target listStructs"
+.PHONY : CMakeFiles/listStructs.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/listStructs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/listStructs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/listStructs.dir/rule
+
+# Convenience name for target.
+listStructs: CMakeFiles/listStructs.dir/rule
+
+.PHONY : listStructs
+
+# clean rule for target.
+CMakeFiles/listStructs.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/clean
+.PHONY : CMakeFiles/listStructs.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/commit.dir
+
+# All Build rule for target.
+CMakeFiles/commit.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/commit.dir/build.make CMakeFiles/commit.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/commit.dir/build.make CMakeFiles/commit.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target commit"
+.PHONY : CMakeFiles/commit.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/commit.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/commit.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/commit.dir/rule
+
+# Convenience name for target.
+commit: CMakeFiles/commit.dir/rule
+
+.PHONY : commit
+
+# clean rule for target.
+CMakeFiles/commit.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/commit.dir/build.make CMakeFiles/commit.dir/clean
+.PHONY : CMakeFiles/commit.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/constants.dir
+
+# All Build rule for target.
+CMakeFiles/constants.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/constants.dir/build.make CMakeFiles/constants.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/constants.dir/build.make CMakeFiles/constants.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target constants"
+.PHONY : CMakeFiles/constants.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/constants.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/constants.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/constants.dir/rule
+
+# Convenience name for target.
+constants: CMakeFiles/constants.dir/rule
+
+.PHONY : constants
+
+# clean rule for target.
+CMakeFiles/constants.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/constants.dir/build.make CMakeFiles/constants.dir/clean
+.PHONY : CMakeFiles/constants.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/fileSystemHelper.dir
+
+# All Build rule for target.
+CMakeFiles/fileSystemHelper.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fileSystemHelper.dir/build.make CMakeFiles/fileSystemHelper.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fileSystemHelper.dir/build.make CMakeFiles/fileSystemHelper.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target fileSystemHelper"
+.PHONY : CMakeFiles/fileSystemHelper.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/fileSystemHelper.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fileSystemHelper.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mottl/workspace/lit/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/fileSystemHelper.dir/rule
+
+# Convenience name for target.
+fileSystemHelper: CMakeFiles/fileSystemHelper.dir/rule
+
+.PHONY : fileSystemHelper
+
+# clean rule for target.
+CMakeFiles/fileSystemHelper.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fileSystemHelper.dir/build.make CMakeFiles/fileSystemHelper.dir/clean
+.PHONY : CMakeFiles/fileSystemHelper.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

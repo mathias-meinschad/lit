@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/lit.dir/main.cpp.o CMakeFiles/lit.dir/Tree/Tree.cpp.o CMakeFiles/lit.dir/Commit/Commit.cpp.o CMakeFiles/lit.dir/Blob/Blob.cpp.o CMakeFiles/lit.dir/Lit/LitCommands.cpp.o  -o lit 
+/usr/bin/c++  -g   CMakeFiles/lit.dir/lit.cpp.o  -o lit  libcommit.a liblitCommands.a libshellCommands.a libfileSystemHelper.a libconstants.a libcommit.a 

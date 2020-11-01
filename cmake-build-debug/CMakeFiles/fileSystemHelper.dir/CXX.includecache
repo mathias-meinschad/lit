@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mottl/workspace/lit/Helpers/FileSystemHelper.cpp
+FileSystemHelper.h
+/home/mottl/workspace/lit/Helpers/FileSystemHelper.h
+filesystem
+-
+
+/home/mottl/workspace/lit/Helpers/FileSystemHelper.h
+filesystem
+-
+

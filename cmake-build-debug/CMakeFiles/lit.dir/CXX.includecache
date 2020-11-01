@@ -6,23 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/home/mottl/workspace/lit/Lit/LitCommands.cpp
-LitCommands.h
-/home/mottl/workspace/lit/Lit/LitCommands.h
-cstring
--
-dirent.h
--
-fstream
--
-iostream
--
-spawn.h
--
-sys/stat.h
--
-wait.h
--
-
-/home/mottl/workspace/lit/Lit/LitCommands.h
-

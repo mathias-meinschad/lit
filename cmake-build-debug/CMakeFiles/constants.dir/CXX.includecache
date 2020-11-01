@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mottl/workspace/lit/Helpers/Constants.cpp
+Constants.h
+/home/mottl/workspace/lit/Helpers/Constants.h
+
+/home/mottl/workspace/lit/Helpers/Constants.h
+string
+-
+

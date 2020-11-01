@@ -143,32 +143,83 @@ lit/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/build
 .PHONY : lit/fast
 
-Blob/Blob.o: Blob/Blob.cpp.o
+#=============================================================================
+# Target rules for targets named litCommands
 
-.PHONY : Blob/Blob.o
+# Build rule for target.
+litCommands: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 litCommands
+.PHONY : litCommands
 
-# target to build an object file
-Blob/Blob.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Blob/Blob.cpp.o
-.PHONY : Blob/Blob.cpp.o
+# fast build rule for target.
+litCommands/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/build
+.PHONY : litCommands/fast
 
-Blob/Blob.i: Blob/Blob.cpp.i
+#=============================================================================
+# Target rules for targets named shellCommands
 
-.PHONY : Blob/Blob.i
+# Build rule for target.
+shellCommands: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shellCommands
+.PHONY : shellCommands
 
-# target to preprocess a source file
-Blob/Blob.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Blob/Blob.cpp.i
-.PHONY : Blob/Blob.cpp.i
+# fast build rule for target.
+shellCommands/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shellCommands.dir/build.make CMakeFiles/shellCommands.dir/build
+.PHONY : shellCommands/fast
 
-Blob/Blob.s: Blob/Blob.cpp.s
+#=============================================================================
+# Target rules for targets named listStructs
 
-.PHONY : Blob/Blob.s
+# Build rule for target.
+listStructs: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 listStructs
+.PHONY : listStructs
 
-# target to generate assembly for a file
-Blob/Blob.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Blob/Blob.cpp.s
-.PHONY : Blob/Blob.cpp.s
+# fast build rule for target.
+listStructs/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/build
+.PHONY : listStructs/fast
+
+#=============================================================================
+# Target rules for targets named commit
+
+# Build rule for target.
+commit: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 commit
+.PHONY : commit
+
+# fast build rule for target.
+commit/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/commit.dir/build.make CMakeFiles/commit.dir/build
+.PHONY : commit/fast
+
+#=============================================================================
+# Target rules for targets named constants
+
+# Build rule for target.
+constants: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 constants
+.PHONY : constants
+
+# fast build rule for target.
+constants/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/constants.dir/build.make CMakeFiles/constants.dir/build
+.PHONY : constants/fast
+
+#=============================================================================
+# Target rules for targets named fileSystemHelper
+
+# Build rule for target.
+fileSystemHelper: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fileSystemHelper
+.PHONY : fileSystemHelper
+
+# fast build rule for target.
+fileSystemHelper/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fileSystemHelper.dir/build.make CMakeFiles/fileSystemHelper.dir/build
+.PHONY : fileSystemHelper/fast
 
 Commit/Commit.o: Commit/Commit.cpp.o
 
@@ -176,7 +227,7 @@ Commit/Commit.o: Commit/Commit.cpp.o
 
 # target to build an object file
 Commit/Commit.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Commit/Commit.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/commit.dir/build.make CMakeFiles/commit.dir/Commit/Commit.cpp.o
 .PHONY : Commit/Commit.cpp.o
 
 Commit/Commit.i: Commit/Commit.cpp.i
@@ -185,7 +236,7 @@ Commit/Commit.i: Commit/Commit.cpp.i
 
 # target to preprocess a source file
 Commit/Commit.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Commit/Commit.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/commit.dir/build.make CMakeFiles/commit.dir/Commit/Commit.cpp.i
 .PHONY : Commit/Commit.cpp.i
 
 Commit/Commit.s: Commit/Commit.cpp.s
@@ -194,8 +245,89 @@ Commit/Commit.s: Commit/Commit.cpp.s
 
 # target to generate assembly for a file
 Commit/Commit.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Commit/Commit.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/commit.dir/build.make CMakeFiles/commit.dir/Commit/Commit.cpp.s
 .PHONY : Commit/Commit.cpp.s
+
+Helpers/Constants.o: Helpers/Constants.cpp.o
+
+.PHONY : Helpers/Constants.o
+
+# target to build an object file
+Helpers/Constants.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/constants.dir/build.make CMakeFiles/constants.dir/Helpers/Constants.cpp.o
+.PHONY : Helpers/Constants.cpp.o
+
+Helpers/Constants.i: Helpers/Constants.cpp.i
+
+.PHONY : Helpers/Constants.i
+
+# target to preprocess a source file
+Helpers/Constants.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/constants.dir/build.make CMakeFiles/constants.dir/Helpers/Constants.cpp.i
+.PHONY : Helpers/Constants.cpp.i
+
+Helpers/Constants.s: Helpers/Constants.cpp.s
+
+.PHONY : Helpers/Constants.s
+
+# target to generate assembly for a file
+Helpers/Constants.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/constants.dir/build.make CMakeFiles/constants.dir/Helpers/Constants.cpp.s
+.PHONY : Helpers/Constants.cpp.s
+
+Helpers/FileSystemHelper.o: Helpers/FileSystemHelper.cpp.o
+
+.PHONY : Helpers/FileSystemHelper.o
+
+# target to build an object file
+Helpers/FileSystemHelper.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fileSystemHelper.dir/build.make CMakeFiles/fileSystemHelper.dir/Helpers/FileSystemHelper.cpp.o
+.PHONY : Helpers/FileSystemHelper.cpp.o
+
+Helpers/FileSystemHelper.i: Helpers/FileSystemHelper.cpp.i
+
+.PHONY : Helpers/FileSystemHelper.i
+
+# target to preprocess a source file
+Helpers/FileSystemHelper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fileSystemHelper.dir/build.make CMakeFiles/fileSystemHelper.dir/Helpers/FileSystemHelper.cpp.i
+.PHONY : Helpers/FileSystemHelper.cpp.i
+
+Helpers/FileSystemHelper.s: Helpers/FileSystemHelper.cpp.s
+
+.PHONY : Helpers/FileSystemHelper.s
+
+# target to generate assembly for a file
+Helpers/FileSystemHelper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fileSystemHelper.dir/build.make CMakeFiles/fileSystemHelper.dir/Helpers/FileSystemHelper.cpp.s
+.PHONY : Helpers/FileSystemHelper.cpp.s
+
+Helpers/ShellCommands.o: Helpers/ShellCommands.cpp.o
+
+.PHONY : Helpers/ShellCommands.o
+
+# target to build an object file
+Helpers/ShellCommands.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shellCommands.dir/build.make CMakeFiles/shellCommands.dir/Helpers/ShellCommands.cpp.o
+.PHONY : Helpers/ShellCommands.cpp.o
+
+Helpers/ShellCommands.i: Helpers/ShellCommands.cpp.i
+
+.PHONY : Helpers/ShellCommands.i
+
+# target to preprocess a source file
+Helpers/ShellCommands.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shellCommands.dir/build.make CMakeFiles/shellCommands.dir/Helpers/ShellCommands.cpp.i
+.PHONY : Helpers/ShellCommands.cpp.i
+
+Helpers/ShellCommands.s: Helpers/ShellCommands.cpp.s
+
+.PHONY : Helpers/ShellCommands.s
+
+# target to generate assembly for a file
+Helpers/ShellCommands.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shellCommands.dir/build.make CMakeFiles/shellCommands.dir/Helpers/ShellCommands.cpp.s
+.PHONY : Helpers/ShellCommands.cpp.s
 
 Lit/LitCommands.o: Lit/LitCommands.cpp.o
 
@@ -203,7 +335,7 @@ Lit/LitCommands.o: Lit/LitCommands.cpp.o
 
 # target to build an object file
 Lit/LitCommands.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Lit/LitCommands.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.o
 .PHONY : Lit/LitCommands.cpp.o
 
 Lit/LitCommands.i: Lit/LitCommands.cpp.i
@@ -212,7 +344,7 @@ Lit/LitCommands.i: Lit/LitCommands.cpp.i
 
 # target to preprocess a source file
 Lit/LitCommands.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Lit/LitCommands.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.i
 .PHONY : Lit/LitCommands.cpp.i
 
 Lit/LitCommands.s: Lit/LitCommands.cpp.s
@@ -221,62 +353,65 @@ Lit/LitCommands.s: Lit/LitCommands.cpp.s
 
 # target to generate assembly for a file
 Lit/LitCommands.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Lit/LitCommands.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.s
 .PHONY : Lit/LitCommands.cpp.s
 
-Tree/Tree.o: Tree/Tree.cpp.o
+Lit/LitStructs.o: Lit/LitStructs.cpp.o
 
-.PHONY : Tree/Tree.o
-
-# target to build an object file
-Tree/Tree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Tree/Tree.cpp.o
-.PHONY : Tree/Tree.cpp.o
-
-Tree/Tree.i: Tree/Tree.cpp.i
-
-.PHONY : Tree/Tree.i
-
-# target to preprocess a source file
-Tree/Tree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Tree/Tree.cpp.i
-.PHONY : Tree/Tree.cpp.i
-
-Tree/Tree.s: Tree/Tree.cpp.s
-
-.PHONY : Tree/Tree.s
-
-# target to generate assembly for a file
-Tree/Tree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/Tree/Tree.cpp.s
-.PHONY : Tree/Tree.cpp.s
-
-main.o: main.cpp.o
-
-.PHONY : main.o
+.PHONY : Lit/LitStructs.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/main.cpp.o
-.PHONY : main.cpp.o
+Lit/LitStructs.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/Lit/LitStructs.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/Lit/LitStructs.cpp.o
+.PHONY : Lit/LitStructs.cpp.o
 
-main.i: main.cpp.i
+Lit/LitStructs.i: Lit/LitStructs.cpp.i
 
-.PHONY : main.i
+.PHONY : Lit/LitStructs.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/main.cpp.i
-.PHONY : main.cpp.i
+Lit/LitStructs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/Lit/LitStructs.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/Lit/LitStructs.cpp.i
+.PHONY : Lit/LitStructs.cpp.i
 
-main.s: main.cpp.s
+Lit/LitStructs.s: Lit/LitStructs.cpp.s
 
-.PHONY : main.s
+.PHONY : Lit/LitStructs.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/main.cpp.s
-.PHONY : main.cpp.s
+Lit/LitStructs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/Lit/LitStructs.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/Lit/LitStructs.cpp.s
+.PHONY : Lit/LitStructs.cpp.s
+
+lit.o: lit.cpp.o
+
+.PHONY : lit.o
+
+# target to build an object file
+lit.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/lit.cpp.o
+.PHONY : lit.cpp.o
+
+lit.i: lit.cpp.i
+
+.PHONY : lit.i
+
+# target to preprocess a source file
+lit.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/lit.cpp.i
+.PHONY : lit.cpp.i
+
+lit.s: lit.cpp.s
+
+.PHONY : lit.s
+
+# target to generate assembly for a file
+lit.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lit.dir/build.make CMakeFiles/lit.dir/lit.cpp.s
+.PHONY : lit.cpp.s
 
 # Help Target
 help:
@@ -286,22 +421,34 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... commit"
+	@echo "... constants"
+	@echo "... fileSystemHelper"
+	@echo "... listStructs"
 	@echo "... lit"
-	@echo "... Blob/Blob.o"
-	@echo "... Blob/Blob.i"
-	@echo "... Blob/Blob.s"
+	@echo "... litCommands"
+	@echo "... shellCommands"
 	@echo "... Commit/Commit.o"
 	@echo "... Commit/Commit.i"
 	@echo "... Commit/Commit.s"
+	@echo "... Helpers/Constants.o"
+	@echo "... Helpers/Constants.i"
+	@echo "... Helpers/Constants.s"
+	@echo "... Helpers/FileSystemHelper.o"
+	@echo "... Helpers/FileSystemHelper.i"
+	@echo "... Helpers/FileSystemHelper.s"
+	@echo "... Helpers/ShellCommands.o"
+	@echo "... Helpers/ShellCommands.i"
+	@echo "... Helpers/ShellCommands.s"
 	@echo "... Lit/LitCommands.o"
 	@echo "... Lit/LitCommands.i"
 	@echo "... Lit/LitCommands.s"
-	@echo "... Tree/Tree.o"
-	@echo "... Tree/Tree.i"
-	@echo "... Tree/Tree.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... Lit/LitStructs.o"
+	@echo "... Lit/LitStructs.i"
+	@echo "... Lit/LitStructs.s"
+	@echo "... lit.o"
+	@echo "... lit.i"
+	@echo "... lit.s"
 .PHONY : help
 
 

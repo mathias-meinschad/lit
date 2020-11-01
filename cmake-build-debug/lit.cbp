@@ -27,16 +27,6 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="lit">
 				<Option output="/home/mottl/workspace/lit/cmake-build-debug/lit" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
@@ -44,6 +34,9 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Commit"/>
+					<Add directory="/home/mottl/workspace/lit/Lit"/>
+					<Add directory="/home/mottl/workspace/lit/Helpers"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -67,6 +60,9 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Commit"/>
+					<Add directory="/home/mottl/workspace/lit/Lit"/>
+					<Add directory="/home/mottl/workspace/lit/Helpers"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -83,32 +79,344 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="litCommands">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/liblitCommands.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Lit"/>
+					<Add directory="/home/mottl/workspace/lit/Helpers"/>
+					<Add directory="/home/mottl/workspace/lit/Commit"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 litCommands"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="litCommands/fast">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/liblitCommands.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Lit"/>
+					<Add directory="/home/mottl/workspace/lit/Helpers"/>
+					<Add directory="/home/mottl/workspace/lit/Commit"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 litCommands/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="shellCommands">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/libshellCommands.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Helpers"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 shellCommands"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="shellCommands/fast">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/libshellCommands.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Helpers"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 shellCommands/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="listStructs">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/liblistStructs.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Lit"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 listStructs"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="listStructs/fast">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/liblistStructs.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Lit"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 listStructs/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="commit">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/libcommit.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Commit"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 commit"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="commit/fast">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/libcommit.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mottl/workspace/lit/Commit"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 commit/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="constants">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/libconstants.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 constants"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="constants/fast">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/libconstants.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 constants/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fileSystemHelper">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/libfileSystemHelper.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 fileSystemHelper"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fileSystemHelper/fast">
+				<Option output="/home/mottl/workspace/lit/cmake-build-debug/libfileSystemHelper.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mottl/workspace/lit/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 fileSystemHelper/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mottl/workspace/lit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
-		<Unit filename="/home/mottl/workspace/lit/Blob/Blob.cpp">
-			<Option target="lit"/>
-		</Unit>
-		<Unit filename="/home/mottl/workspace/lit/Blob/Blob.h">
-			<Option target="lit"/>
-		</Unit>
 		<Unit filename="/home/mottl/workspace/lit/Commit/Commit.cpp">
-			<Option target="lit"/>
+			<Option target="commit"/>
 		</Unit>
 		<Unit filename="/home/mottl/workspace/lit/Commit/Commit.h">
-			<Option target="lit"/>
+			<Option target="commit"/>
+		</Unit>
+		<Unit filename="/home/mottl/workspace/lit/Helpers/Constants.cpp">
+			<Option target="constants"/>
+		</Unit>
+		<Unit filename="/home/mottl/workspace/lit/Helpers/Constants.h">
+			<Option target="constants"/>
+		</Unit>
+		<Unit filename="/home/mottl/workspace/lit/Helpers/FileSystemHelper.cpp">
+			<Option target="fileSystemHelper"/>
+		</Unit>
+		<Unit filename="/home/mottl/workspace/lit/Helpers/FileSystemHelper.h">
+			<Option target="fileSystemHelper"/>
+		</Unit>
+		<Unit filename="/home/mottl/workspace/lit/Helpers/ShellCommands.cpp">
+			<Option target="shellCommands"/>
+		</Unit>
+		<Unit filename="/home/mottl/workspace/lit/Helpers/ShellCommands.h">
+			<Option target="shellCommands"/>
 		</Unit>
 		<Unit filename="/home/mottl/workspace/lit/Lit/LitCommands.cpp">
-			<Option target="lit"/>
+			<Option target="litCommands"/>
 		</Unit>
 		<Unit filename="/home/mottl/workspace/lit/Lit/LitCommands.h">
-			<Option target="lit"/>
+			<Option target="litCommands"/>
 		</Unit>
-		<Unit filename="/home/mottl/workspace/lit/Tree/Tree.cpp">
-			<Option target="lit"/>
+		<Unit filename="/home/mottl/workspace/lit/Lit/LitStructs.cpp">
+			<Option target="litCommands"/>
+			<Option target="listStructs"/>
 		</Unit>
-		<Unit filename="/home/mottl/workspace/lit/Tree/Tree.h">
-			<Option target="lit"/>
+		<Unit filename="/home/mottl/workspace/lit/Lit/LitStructs.h">
+			<Option target="litCommands"/>
+			<Option target="listStructs"/>
 		</Unit>
-		<Unit filename="/home/mottl/workspace/lit/main.cpp">
+		<Unit filename="/home/mottl/workspace/lit/lit.cpp">
 			<Option target="lit"/>
 		</Unit>
 		<Unit filename="/home/mottl/workspace/lit/CMakeLists.txt">

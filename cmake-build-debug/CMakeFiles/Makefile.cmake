@@ -49,4 +49,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/lit.dir/DependInfo.cmake"
+  "CMakeFiles/litCommands.dir/DependInfo.cmake"
+  "CMakeFiles/shellCommands.dir/DependInfo.cmake"
+  "CMakeFiles/listStructs.dir/DependInfo.cmake"
+  "CMakeFiles/commit.dir/DependInfo.cmake"
+  "CMakeFiles/constants.dir/DependInfo.cmake"
+  "CMakeFiles/fileSystemHelper.dir/DependInfo.cmake"
   )

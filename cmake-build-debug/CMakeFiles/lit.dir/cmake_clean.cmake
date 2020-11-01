@@ -1,9 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lit.dir/Blob/Blob.cpp.o"
-  "CMakeFiles/lit.dir/Commit/Commit.cpp.o"
-  "CMakeFiles/lit.dir/Lit/LitCommands.cpp.o"
-  "CMakeFiles/lit.dir/Tree/Tree.cpp.o"
-  "CMakeFiles/lit.dir/main.cpp.o"
+  "CMakeFiles/lit.dir/lit.cpp.o"
   "lit"
   "lit.pdb"
 )

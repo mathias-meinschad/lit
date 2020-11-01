@@ -18,7 +18,9 @@ int main(int args, char **argv)
 
 	if (strcmp(argv[1], "help") == 0) {
 		executeHelp(args, argv);
-	} else if (strcmp(argv[1], "init") == 0) {
+	} else if (strcmp(argv[1], "clear") == 0) {
+        executeClear();
+    } else if (strcmp(argv[1], "init") == 0) {
 		executeInit(args, argv);
 	} else if (strcmp(argv[1], "status") == 0) {
 		executeStatus(args, argv);
@@ -36,8 +38,6 @@ int main(int args, char **argv)
 		cout << "'" << argv[1] << "'"
 		     << " is not a lit command. See 'lit help'" << endl;
 	}
-
-	cout << "initializing repository was successful..." << endl;
 
 	return 0;
 }
