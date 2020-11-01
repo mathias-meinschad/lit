@@ -4,6 +4,7 @@
 CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.o
  ../Helpers/Constants.h
  ../Helpers/FileSystemHelper.h
+ ../Helpers/LitCommandsHelper.h
  /home/mottl/workspace/lit/Commit/Commit.h
  /home/mottl/workspace/lit/Helpers/ShellCommands.h
  /home/mottl/workspace/lit/Lit/LitCommands.cpp

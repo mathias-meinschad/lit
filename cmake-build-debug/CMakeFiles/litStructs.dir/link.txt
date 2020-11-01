@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblitStructs.a  CMakeFiles/litStructs.dir/Lit/LitStructs.cpp.o
+/usr/bin/ranlib liblitStructs.a

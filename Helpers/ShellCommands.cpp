@@ -1,6 +1,7 @@
 #include "ShellCommands.h"
 #include "../Lit/LitStructs.h"
 #include "Constants.h"
+#include "FileSystemHelper.h"
 #include <array>
 #include <fstream>
 #include <iostream>
@@ -40,21 +41,13 @@ std::string execDiff(const std::string &dest, const std::string &src, int &statu
 	return execCommand(cmd, status);
 }
 
-std::string ObtainSourceFile(const std::string &difference)
-{
-	auto diff = difference.substr(4, difference.length() - 4);
-	int n = diff.find(' ');
-	return diff.substr(0, n - 1);
-}
-
-
 int clearFile(const std::string &patchFile)
 {
-    std::string fullPathFileName = PATCH_PATH + patchFile;
-    if (remove(fullPathFileName.c_str()) != 0)
-        return 1;
+	std::string fullPathFileName = PATCH_PATH + patchFile;
+	if (remove(fullPathFileName.c_str()) != 0)
+		return 1;
 
-    return 0;
+	return 0;
 }
 
 std::string execPatch(const LitDifference &difference, int &status)
@@ -64,19 +57,8 @@ std::string execPatch(const LitDifference &difference, int &status)
 	std::stringstream cmd;
 	cmd << "patch -u " << difference.srcFile << " -i " << patchFileName;
 	auto result = execCommand(cmd.str(), status);
-    clearFile(patchFileName);
+	clearFile(patchFileName);
 	return result;
-}
-
-void saveContentToFile(const std::string &filename, const std::string &content)
-{
-	std::ofstream outfile(filename);
-	if (!outfile) {
-		std::cout << "Problems while trying saving patch file to .lit folder..." << std::endl;
-		return;
-	}
-	outfile << content;
-	outfile.close();
 }
 
 // todo remove this

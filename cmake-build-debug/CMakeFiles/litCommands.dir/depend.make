@@ -3,6 +3,7 @@
 
 CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.o: ../Helpers/Constants.h
 CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.o: ../Helpers/FileSystemHelper.h
+CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.o: ../Helpers/LitCommandsHelper.h
 CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.o: ../Commit/Commit.h
 CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.o: ../Helpers/ShellCommands.h
 CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.o: ../Lit/LitCommands.cpp

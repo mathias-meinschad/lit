@@ -157,6 +157,19 @@ litCommands/fast:
 .PHONY : litCommands/fast
 
 #=============================================================================
+# Target rules for targets named litCommandsHelper
+
+# Build rule for target.
+litCommandsHelper: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 litCommandsHelper
+.PHONY : litCommandsHelper
+
+# fast build rule for target.
+litCommandsHelper/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommandsHelper.dir/build.make CMakeFiles/litCommandsHelper.dir/build
+.PHONY : litCommandsHelper/fast
+
+#=============================================================================
 # Target rules for targets named shellCommands
 
 # Build rule for target.
@@ -170,19 +183,6 @@ shellCommands/fast:
 .PHONY : shellCommands/fast
 
 #=============================================================================
-# Target rules for targets named listStructs
-
-# Build rule for target.
-listStructs: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 listStructs
-.PHONY : listStructs
-
-# fast build rule for target.
-listStructs/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/build
-.PHONY : listStructs/fast
-
-#=============================================================================
 # Target rules for targets named commit
 
 # Build rule for target.
@@ -194,6 +194,19 @@ commit: cmake_check_build_system
 commit/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/commit.dir/build.make CMakeFiles/commit.dir/build
 .PHONY : commit/fast
+
+#=============================================================================
+# Target rules for targets named litStructs
+
+# Build rule for target.
+litStructs: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 litStructs
+.PHONY : litStructs
+
+# fast build rule for target.
+litStructs/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litStructs.dir/build.make CMakeFiles/litStructs.dir/build
+.PHONY : litStructs/fast
 
 #=============================================================================
 # Target rules for targets named constants
@@ -302,6 +315,33 @@ Helpers/FileSystemHelper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fileSystemHelper.dir/build.make CMakeFiles/fileSystemHelper.dir/Helpers/FileSystemHelper.cpp.s
 .PHONY : Helpers/FileSystemHelper.cpp.s
 
+Helpers/LitCommandsHelper.o: Helpers/LitCommandsHelper.cpp.o
+
+.PHONY : Helpers/LitCommandsHelper.o
+
+# target to build an object file
+Helpers/LitCommandsHelper.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommandsHelper.dir/build.make CMakeFiles/litCommandsHelper.dir/Helpers/LitCommandsHelper.cpp.o
+.PHONY : Helpers/LitCommandsHelper.cpp.o
+
+Helpers/LitCommandsHelper.i: Helpers/LitCommandsHelper.cpp.i
+
+.PHONY : Helpers/LitCommandsHelper.i
+
+# target to preprocess a source file
+Helpers/LitCommandsHelper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommandsHelper.dir/build.make CMakeFiles/litCommandsHelper.dir/Helpers/LitCommandsHelper.cpp.i
+.PHONY : Helpers/LitCommandsHelper.cpp.i
+
+Helpers/LitCommandsHelper.s: Helpers/LitCommandsHelper.cpp.s
+
+.PHONY : Helpers/LitCommandsHelper.s
+
+# target to generate assembly for a file
+Helpers/LitCommandsHelper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommandsHelper.dir/build.make CMakeFiles/litCommandsHelper.dir/Helpers/LitCommandsHelper.cpp.s
+.PHONY : Helpers/LitCommandsHelper.cpp.s
+
 Helpers/ShellCommands.o: Helpers/ShellCommands.cpp.o
 
 .PHONY : Helpers/ShellCommands.o
@@ -363,7 +403,7 @@ Lit/LitStructs.o: Lit/LitStructs.cpp.o
 # target to build an object file
 Lit/LitStructs.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/Lit/LitStructs.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/Lit/LitStructs.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litStructs.dir/build.make CMakeFiles/litStructs.dir/Lit/LitStructs.cpp.o
 .PHONY : Lit/LitStructs.cpp.o
 
 Lit/LitStructs.i: Lit/LitStructs.cpp.i
@@ -373,7 +413,7 @@ Lit/LitStructs.i: Lit/LitStructs.cpp.i
 # target to preprocess a source file
 Lit/LitStructs.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/Lit/LitStructs.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/Lit/LitStructs.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litStructs.dir/build.make CMakeFiles/litStructs.dir/Lit/LitStructs.cpp.i
 .PHONY : Lit/LitStructs.cpp.i
 
 Lit/LitStructs.s: Lit/LitStructs.cpp.s
@@ -383,7 +423,7 @@ Lit/LitStructs.s: Lit/LitStructs.cpp.s
 # target to generate assembly for a file
 Lit/LitStructs.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/litCommands.dir/build.make CMakeFiles/litCommands.dir/Lit/LitStructs.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/listStructs.dir/build.make CMakeFiles/listStructs.dir/Lit/LitStructs.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/litStructs.dir/build.make CMakeFiles/litStructs.dir/Lit/LitStructs.cpp.s
 .PHONY : Lit/LitStructs.cpp.s
 
 lit.o: lit.cpp.o
@@ -424,9 +464,10 @@ help:
 	@echo "... commit"
 	@echo "... constants"
 	@echo "... fileSystemHelper"
-	@echo "... listStructs"
 	@echo "... lit"
 	@echo "... litCommands"
+	@echo "... litCommandsHelper"
+	@echo "... litStructs"
 	@echo "... shellCommands"
 	@echo "... Commit/Commit.o"
 	@echo "... Commit/Commit.i"
@@ -437,6 +478,9 @@ help:
 	@echo "... Helpers/FileSystemHelper.o"
 	@echo "... Helpers/FileSystemHelper.i"
 	@echo "... Helpers/FileSystemHelper.s"
+	@echo "... Helpers/LitCommandsHelper.o"
+	@echo "... Helpers/LitCommandsHelper.i"
+	@echo "... Helpers/LitCommandsHelper.s"
 	@echo "... Helpers/ShellCommands.o"
 	@echo "... Helpers/ShellCommands.i"
 	@echo "... Helpers/ShellCommands.s"

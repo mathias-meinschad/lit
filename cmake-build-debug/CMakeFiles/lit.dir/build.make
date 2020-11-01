@@ -101,10 +101,12 @@ lit: CMakeFiles/lit.dir/lit.cpp.o
 lit: CMakeFiles/lit.dir/build.make
 lit: libcommit.a
 lit: liblitCommands.a
+lit: libcommit.a
+lit: liblitCommandsHelper.a
 lit: libshellCommands.a
 lit: libfileSystemHelper.a
 lit: libconstants.a
-lit: libcommit.a
+lit: liblitStructs.a
 lit: CMakeFiles/lit.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mottl/workspace/lit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable lit"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lit.dir/link.txt --verbose=$(VERBOSE)

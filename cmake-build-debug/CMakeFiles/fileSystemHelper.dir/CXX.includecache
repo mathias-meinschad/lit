@@ -6,13 +6,27 @@
 
 #IncludeRegexTransform: 
 
+/home/mottl/workspace/lit/Helpers/Constants.h
+string
+-
+
 /home/mottl/workspace/lit/Helpers/FileSystemHelper.cpp
 FileSystemHelper.h
 /home/mottl/workspace/lit/Helpers/FileSystemHelper.h
+Constants.h
+/home/mottl/workspace/lit/Helpers/Constants.h
+dirent.h
+-
 filesystem
+-
+fstream
+-
+iostream
 -
 
 /home/mottl/workspace/lit/Helpers/FileSystemHelper.h
 filesystem
+-
+list
 -
 

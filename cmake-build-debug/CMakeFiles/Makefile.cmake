@@ -50,9 +50,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/lit.dir/DependInfo.cmake"
   "CMakeFiles/litCommands.dir/DependInfo.cmake"
+  "CMakeFiles/litCommandsHelper.dir/DependInfo.cmake"
   "CMakeFiles/shellCommands.dir/DependInfo.cmake"
-  "CMakeFiles/listStructs.dir/DependInfo.cmake"
   "CMakeFiles/commit.dir/DependInfo.cmake"
+  "CMakeFiles/litStructs.dir/DependInfo.cmake"
   "CMakeFiles/constants.dir/DependInfo.cmake"
   "CMakeFiles/fileSystemHelper.dir/DependInfo.cmake"
   )

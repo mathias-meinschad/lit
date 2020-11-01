@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/mottl/workspace/lit/Lit -I/home/mottl/workspace/lit/Helpers -I/home/mottl/workspace/lit/Commit 
+CXX_INCLUDES = -I/home/mottl/workspace/lit/Lit -I/home/mottl/workspace/lit/Commit -I/home/mottl/workspace/lit/Helpers 
 

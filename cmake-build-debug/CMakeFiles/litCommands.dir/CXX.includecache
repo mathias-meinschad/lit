@@ -13,6 +13,16 @@ string
 ../Helpers/FileSystemHelper.h
 filesystem
 -
+list
+-
+
+../Helpers/LitCommandsHelper.h
+../Lit/LitStructs.h
+../Lit/LitStructs.h
+list
+-
+string
+-
 
 /home/mottl/workspace/lit/Commit/Commit.h
 ../Lit/LitStructs.h
@@ -45,11 +55,13 @@ Constants.h
 -
 FileSystemHelper.h
 -
+LitCommandsHelper.h
+-
+cstring
+-
 ctime
 -
 dirent.h
--
-filesystem
 -
 fstream
 -
