@@ -1,2 +1,0 @@
-/usr/bin/ar qc libshellCommands.a  CMakeFiles/shellCommands.dir/Helpers/ShellCommands.cpp.o
-/usr/bin/ranlib libshellCommands.a

@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/lit.dir/lit.cpp.o  -o lit  libcommit.a liblitCommands.a libcommit.a liblitCommandsHelper.a libshellCommands.a libfileSystemHelper.a libconstants.a liblitStructs.a 

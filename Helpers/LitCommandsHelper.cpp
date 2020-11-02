@@ -202,11 +202,10 @@ std::string strFromDifferenceList(const std::list<LitDifference> &list)
 	return str;
 }
 
-bool ObtainDifferenceToWorkspace(std::list<std::string> &addedFiles, std::list<std::string> &removedFiles,
+bool ObtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<std::string> &addedFiles, std::list<std::string> &removedFiles,
                                  std::list<LitDifference> &differences)
 {
-	std::string currentCommit = getCurrentCommit();
-	restoreCurrentlyCommittedFiles(currentCommit);
+	restoreCurrentlyCommittedFiles(revisionNumber);
 
 	std::list<std::string> repoFiles;
 	std::list<std::string> committedFiles;

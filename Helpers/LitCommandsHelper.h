@@ -40,5 +40,5 @@ std::string strFromStringList(const std::list<std::string> &list);
 
 std::string strFromDifferenceList(const std::list<LitDifference> &list);
 
-bool ObtainDifferenceToWorkspace(std::list<std::string> &addedFiles, std::list<std::string> &removedFiles,
-                                 std::list<LitDifference> &differences);
+bool ObtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<std::string> &addedFiles,
+                                 std::list<std::string> &removedFiles, std::list<LitDifference> &differences);

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcommit.a  CMakeFiles/commit.dir/Commit/Commit.cpp.o
-/usr/bin/ranlib libcommit.a

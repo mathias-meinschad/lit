@@ -8,22 +8,21 @@
 #include <cstring>
 #include <ctime>
 #include <dirent.h>
-#include <fstream>
 #include <iostream>
 #include <sys/stat.h>
 
-bool checkIfRepoIsInitialized()
+void RepoCheck()
 {
 	DIR *dir = opendir(".lit");
-	if (dir) {
-		return true;
+	if (!dir) {
+		std::cout << "repository has to be initialized" << std::endl;
 	}
-
-	return false;
 }
 
 void executeClear()
 {
+	RepoCheck();
+
 	std::cout << "Are you sure you want to remove the repository. (Y/N) " << std::endl;
 	char c;
 	std::cin >> c;
@@ -39,24 +38,53 @@ void executeLog(int args, char **argv)
 	std::cout << "not implemented..." << std::endl;
 }
 
+void MergeWithoutConflicts(std::list<std::string> removedFiles)
+{
+	for (const std::string &removedFile : removedFiles) {
+		std::cout << removedFile << std::endl;
+		copyFileAndDirectories(CURRENT_COMMIT + removedFile, "./" + removedFile);
+	}
+}
+
 void executeMerge(int args, char **argv)
 {
-	std::cout << "inside merge" << std::endl;
+	RepoCheck();
 
-	if (!checkIfRepoIsInitialized()) {
-		std::cout << "repository has to be initialized" << std::endl;
-
+	if (args < 3) {
+		// todo: display usage
+		std::cout << "wrong usage of merge..." << std::endl;
 		return;
 	}
+
+	auto currentCommitNr = getCurrentCommit();
+	std::string mergeCommitNr = argv[2];
+
+	if (!isRevisionNumberOk(mergeCommitNr)) {
+		std::cout << "cannot find commit: " << mergeCommitNr << std::endl;
+	}
+
+	std::list<LitDifference> differences;
+	std::list<std::string> addedFiles;
+	std::list<std::string> removedFiles;
+	bool noDifference = ObtainDifferenceToWorkspace(currentCommitNr, addedFiles, removedFiles, differences);
+	if (!noDifference) {
+		std::cout << "cannot merge when there are uncommitted changes..." << std::endl;
+		return;
+	}
+	differences = {};
+	ObtainDifferenceToWorkspace(mergeCommitNr, addedFiles, removedFiles, differences);
+	if (differences.empty()) {
+		MergeWithoutConflicts(removedFiles);
+	} else {
+		//		MergeWithConflicts(differences);
+	}
+
+	std::cout << "merge was successful..." << std::endl;
 }
 
 void executeShow(int args, char **argv)
 {
-	if (!checkIfRepoIsInitialized()) {
-		std::cout << "repository has to be initialized" << std::endl;
-
-		return;
-	}
+	RepoCheck();
 
 	std::string commitNumber;
 	if (args > 2) {
@@ -83,15 +111,13 @@ void executeShow(int args, char **argv)
 
 void executeStatus(int args, char **argv)
 {
-	if (!checkIfRepoIsInitialized()) {
-		std::cout << "repository has to be initialized" << std::endl;
-		return;
-	}
+	RepoCheck();
 
-	std::list<LitDifference> differences;
+	std::string currentCommit = getCurrentCommit();
+    std::list<LitDifference> differences;
 	std::list<std::string> addedFiles;
 	std::list<std::string> removedFiles;
-	ObtainDifferenceToWorkspace(addedFiles, removedFiles, differences);
+	ObtainDifferenceToWorkspace(currentCommit, addedFiles, removedFiles, differences);
 
 	for (const auto &addedFile : addedFiles) {
 		std::cout << "A\t" << addedFile << std::endl;
@@ -106,48 +132,30 @@ void executeStatus(int args, char **argv)
 	}
 }
 
-void executeInit(int args, char **argv)
+void executeInit()
 {
-	if (checkIfRepoIsInitialized()) {
-		std::cout << "repository has been initialized already" << std::endl;
-		return;
-	}
+	RepoCheck();
 
 	std::cout << "Initializing repository..." << std::endl;
 
-	// todo: improve this.
+	int successful;
+	successful = std::filesystem::create_directories(LIT_PATH);
+	if (!successful) {
+		std::cout << "problem while trying to initialize repository" << std::endl;
+	}
 
-	if (mkdir(".lit", 0777)) {
-		std::cout << "problem while trying to initialize repository" << std::endl;
-	}
-	if (mkdir(".lit/refs", 0777)) {
-		std::cout << "problem while trying to initialize repository" << std::endl;
-		system("rm -rf .lit");
-	}
-	if (mkdir(".lit/refs/heads", 0777)) {
-		std::cout << "problem while trying to initialize repository" << std::endl;
-		system("rm -rf .lit");
-	}
-	if (mkdir(".lit/commits", 0777)) {
-		std::cout << "problem while trying to initialize repository" << std::endl;
-		system("rm -rf .lit");
-	}
-	if (mkdir(".lit/branches", 0777)) {
-		std::cout << "problem while trying to initialize repository" << std::endl;
-		system("rm -rf .lit");
-	}
-	if (mkdir(".lit/patches", 0777)) {
-		std::cout << "problem while trying to initialize repository" << std::endl;
-		system("rm -rf .lit");
-	}
-	if (mkdir(".lit/currentCommit", 0777)) {
+	successful = std::filesystem::create_directories(REFS) && successful;
+	successful = std::filesystem::create_directories(COMMITS_PATH) && successful;
+	successful = std::filesystem::create_directories(PATCH_PATH) && successful;
+	successful = std::filesystem::create_directories(CURRENT_COMMIT) && successful;
+	if (!successful) {
 		std::cout << "problem while trying to initialize repository" << std::endl;
 		system("rm -rf .lit");
 	}
 
-	saveContentToFile(".lit/commits/revisionNumber", "1");
-	saveContentToFile(".lit/HEAD", "refs/heads/master");
-	saveContentToFile(".lit/refs/heads/master", "r0");
+	saveContentToFile(COMMITS_PATH + "revisionNumber", "1");
+	saveContentToFile(LIT_PATH + "HEAD", "refs/heads/master");
+	saveContentToFile(REFS + "heads/master", "r0");
 	time_t t = time(nullptr); // get time now
 	tm *now = localtime(&t);
 	std::list<LitDifference> emptyDifference;
@@ -160,12 +168,7 @@ void executeInit(int args, char **argv)
 
 void executeHelp(int args, char **argv)
 {
-	std::cout << "inside help" << std::endl;
-
-	if (!checkIfRepoIsInitialized()) {
-		std::cout << "repository has to be initialized" << std::endl;
-		return;
-	}
+	RepoCheck();
 }
 
 void createNewBranch(const std::string &branchName, const std::string &currentRevisionNumber)
@@ -176,10 +179,7 @@ void createNewBranch(const std::string &branchName, const std::string &currentRe
 
 void executeCheckout(int args, char **argv)
 {
-	if (!checkIfRepoIsInitialized()) {
-		std::cout << "repository has to be initialized" << std::endl;
-		return;
-	}
+	RepoCheck();
 
 	std::string currentCommit = getCurrentCommit();
 	std::string branchName;
@@ -208,7 +208,7 @@ void executeCheckout(int args, char **argv)
 	}
 
 	if (!isRevisionNumberOk(revisionNumber)) {
-		std::cout << "commit or branch cannot be found..." << std::endl;
+		std::cout << "cannot find commit/branch: " << revisionNumber << std::endl;
 		return;
 	}
 
@@ -219,38 +219,33 @@ void executeCheckout(int args, char **argv)
 
 void executeCommit(int args, char **argv)
 {
-	if (!checkIfRepoIsInitialized()) {
-		std::cout << "repository has to be initialized" << std::endl;
-		return;
-	}
+	RepoCheck();
 
 	if (args < 3) {
 		// todo: display usage
-		std::cout << "Wrong usage of commit..." << std::endl;
+		std::cout << "wrong usage of commit..." << std::endl;
 		return;
 	}
 
 	std::string revisionNumber = getCurrentRevisionNumber();
 	if (revisionNumber.empty()) {
-		std::cout << "repo has not been initialized properly\n  please reinitialize the repo with 'lit clear' and 'lit "
-		             "init'..."
-		          << std::endl;
+		std::cout << "problem occurred: please reinitialize the repo with 'lit clear' and 'lit init'..." << std::endl;
 		return;
 	}
 
+    std::string currentCommit = getCurrentCommit();
 	std::list<LitDifference> differences;
 	std::list<std::string> addedFiles;
 	std::list<std::string> removedFiles;
-	bool noDifference = ObtainDifferenceToWorkspace(addedFiles, removedFiles, differences);
+	bool noDifference = ObtainDifferenceToWorkspace(currentCommit, addedFiles, removedFiles, differences);
 
 	if (noDifference) {
 		std::cout << "nothing to commit..." << std::endl;
 		return;
 	}
 
-	// todo improve this
 	auto revisionNrDirectory = COMMITS_PATH + revisionNumber;
-	if (mkdir(revisionNrDirectory.c_str(), 0777)) {
+	if (std::filesystem::create_directory(revisionNrDirectory)) {
 		std::cout << "Problem while adding a directory. Please check the access rights." << std::endl;
 		return;
 	}
@@ -259,7 +254,7 @@ void executeCommit(int args, char **argv)
 	time_t t = time(nullptr); // get time now
 	tm *now = localtime(&t);
 	std::string commitMsg = std::string(argv[2]);
-	Commit commit(revisionNumber, currentCommit, commitMsg, *now, differences, addedFiles, removedFiles);
+	Commit commit(revisionNumber, getCurrentCommit(), commitMsg, *now, differences, addedFiles, removedFiles);
 	setRefs(revisionNumber);
 
 	commit.toFile(COMMITS_PATH + revisionNumber);

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libblob.a  CMakeFiles/blob.dir/Blob/Blob.cpp.o
-/usr/bin/ranlib libblob.a

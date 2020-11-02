@@ -1,2 +1,0 @@
-/usr/bin/ar qc liblitCommands.a  CMakeFiles/litCommands.dir/Lit/LitCommands.cpp.o CMakeFiles/litCommands.dir/Lit/LitStructs.cpp.o
-/usr/bin/ranlib liblitCommands.a
