@@ -39,6 +39,7 @@ void executeLog(int args, char **argv)
 	std::cout << "not implemented..." << std::endl;
 }
 
+// todo: refactor this to litCommandsHelper
 void MergeWithoutConflicts(const std::list<std::string> &removedFiles)
 {
 	for (const std::string &removedFile : removedFiles) {
@@ -46,6 +47,7 @@ void MergeWithoutConflicts(const std::list<std::string> &removedFiles)
 	}
 }
 
+// todo: refactor this to litCommandsHelper
 // I know this method is not performant at all because it is O(n^2)
 // If I have more time I would use a tree structure and search with this structure for the common base
 std::string CommonBaseOfBranches(std::string currentCommitNr, std::string mergeCommitNr)
@@ -64,6 +66,7 @@ std::string CommonBaseOfBranches(std::string currentCommitNr, std::string mergeC
 	return {};
 }
 
+// todo: refactor this to litCommandsHelper
 void MergeWithConflicts(std::list<std::string> &removedFiles, std::list<Differences> &differences,
                         const std::string &currentCommit, const std::string &mergeCommit)
 {
