@@ -50,7 +50,7 @@ int clearFile(const std::string &patchFile)
 	return 0;
 }
 
-std::string execPatch(const LitDifference &difference, int &status)
+std::string execPatch(const Differences &difference, int &status)
 {
 	std::string patchFileName = PATCH_PATH + "test.patch";
 	saveContentToFile(patchFileName, difference.diffOutput);
@@ -60,21 +60,3 @@ std::string execPatch(const LitDifference &difference, int &status)
 	clearFile(patchFileName);
 	return result;
 }
-
-// todo remove this
-// std::string execDiffAndPatch(const std::string &dst, const std::string &src)
-//{
-//	int status;
-//	std::string diff = execDiff(dst, src, status);
-//	std::string patchFileName = PATCH_PATH + "patch_" + dst + "_" + src;
-//	saveContentToFile(patchFileName, diff);
-//	if (status == 1) {
-//		int statusPatch;
-//		execPatch(patchFileName, statusPatch);
-//		if (statusPatch == 0) {
-//			clearFile(patchFileName);
-//		}
-//	}
-//
-//	return diff;
-//}

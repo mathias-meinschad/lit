@@ -6,10 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 # Structs
 add_library(litStructs Lit/LitStructs.cpp)
 target_include_directories(litStructs PUBLIC Lit)
-
-# Commit
-add_library(commit Commit/Commit.cpp)
-target_include_directories(commit PUBLIC Commit)
+target_include_directories(litStructs PUBLIC Lit)
 
 # Helpers
 add_library(constants Helpers/Constants.cpp)
@@ -23,10 +20,9 @@ target_include_directories(litCommandsHelper PUBLIC Helpers)
 
 # Lit
 add_library(litCommands Lit/LitCommands.cpp Lit/LitStructs.cpp)
-target_link_libraries(litCommands PUBLIC shellCommands commit fileSystemHelper litCommandsHelper)
-target_include_directories(litCommands PUBLIC Lit)
+target_link_libraries(litCommands PUBLIC shellCommands fileSystemHelper litCommandsHelper)
 
 # Lit
 add_executable(lit lit.cpp)
-target_link_libraries(lit PRIVATE commit litCommands)
+target_link_libraries(lit PRIVATE litStructs litCommands)
 target_compile_options(lit PRIVATE -Wall -Wextra -pedantic -Werror)

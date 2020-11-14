@@ -34,7 +34,6 @@ bool hasFileBeenRemoved(const std::string &file, std::list<std::string> &removed
 
 bool copyFileAndDirectories(const std::string &src, const std::string &dest)
 {
-	// todo: maybe use paths as arguments and cast paths in the function call
 	std::filesystem::path pathToDest(dest);
 	std::filesystem::create_directories(pathToDest.remove_filename());
 	std::ifstream srcFile(src, std::ios::binary);
@@ -64,7 +63,7 @@ void CopyCommitToWorkingArea()
 	system("rm -rf *");
 	std::filesystem::path pathToSrc(CURRENT_COMMIT);
 	std::filesystem::path pathToDest("./");
-	std::filesystem::copy(pathToSrc, pathToDest);
+	std::filesystem::copy(pathToSrc, pathToDest, std::filesystem::copy_options::recursive);
 }
 
 void listFiles(const std::string &path, std::list<std::string> &files)
@@ -93,7 +92,6 @@ void setHead(const std::string &branch)
 
 void setRefs(const std::string &revisionNumber)
 {
-	// todo: improve this
 	std::ifstream headFile(HEAD);
 	if (headFile.is_open()) {
 		std::string line;
@@ -117,7 +115,7 @@ void saveContentToFile(const std::string &filename, const std::string &content, 
 	}
 	std::ofstream outfile(filename);
 	if (!outfile) {
-		std::cout << "Problems while trying saving patch file to .lit folder..." << std::endl;
+		std::cout << "problems while trying to create file file " << filename << " to .lit folder..." << std::endl;
 		return;
 	}
 	outfile << content;

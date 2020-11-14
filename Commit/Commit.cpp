@@ -23,7 +23,7 @@ void Commit::toFile(const std::string &fileName)
 			out_file << removedFile << std::endl;
 		}
 		out_file << "differences:" << std::endl;
-		for (const LitDifference &difference : differences) {
+		for (const LitStructs &difference : differences) {
 			out_file << difference.srcFile << std::endl;
 			out_file << difference.destFile << std::endl;
 			out_file << difference.diffOutput << std::endl;
@@ -52,7 +52,7 @@ Commit::Commit(const std::string &fileName)
 		// this line is addedFiles:
 		getline(in_file, line);
 		getline(in_file, line);
-		// todo: we should not rely on a string here
+		// because the program writes the commit file and it should not be changed, I am using magic strings here.
 		while (line != "removed files:") {
 			addedFiles.emplace_back(line);
 			getline(in_file, line);
@@ -77,7 +77,7 @@ Commit::Commit(const std::string &fileName)
 				getline(in_file, line);
 			}
 			if (!diffOutput.empty()) {
-				LitDifference litDifference(srcFile, destFile, diffOutput);
+				LitStructs litDifference(srcFile, destFile, diffOutput);
 				differences.emplace_back(litDifference);
 			}
 		}
@@ -87,7 +87,7 @@ Commit::Commit(const std::string &fileName)
 }
 
 Commit::Commit(std::string revisionNumber, std::string parentCommit, std::string commitMsg, tm date,
-               std::list<LitDifference> differences, std::list<std::string> addedFiles,
+               std::list<LitStructs> differences, std::list<std::string> addedFiles,
                std::list<std::string> removedFiles)
     : revisionNumber(revisionNumber), parentCommit(parentCommit), commitMsg(commitMsg), date(date),
       differences(differences), addedFiles(addedFiles), removedFiles(removedFiles)

@@ -1,8 +1,7 @@
 #include "LitCommandsHelper.h"
-#include "../Commit/Commit.h"
-#include "../Lit/LitStructs.h"
 #include "Constants.h"
 #include "FileSystemHelper.h"
+#include "LitStructs.h"
 #include "ShellCommands.h"
 #include <fstream>
 #include <iostream>
@@ -52,7 +51,6 @@ void increaseRevisionNumber()
 		std::getline(inFile, revisionNumber);
 		inFile.close();
 
-		// todo: improve this
 		std::ofstream out_file(CURRENT_REVISION_NUMBER_PATH);
 		if (out_file.is_open()) {
 			int temp = stoi(revisionNumber);
@@ -65,7 +63,6 @@ void increaseRevisionNumber()
 
 std::string getCurrentCommit()
 {
-	// todo: improve this
 	std::ifstream refsHeadFile(HEAD);
 	if (refsHeadFile.is_open()) {
 		std::string line;
@@ -82,7 +79,7 @@ std::string getCurrentCommit()
 	return {};
 }
 
-bool compareToCurrentCommit(const std::string &filePath, std::list<LitDifference> &differences,
+bool compareToCurrentCommit(const std::string &filePath, std::list<Differences> &differences,
                             std::list<std::string> &addedFiles)
 {
 	bool noDifference = true;
@@ -96,9 +93,8 @@ bool compareToCurrentCommit(const std::string &filePath, std::list<LitDifference
 		int status;
 		auto result = execDiff(alteredFilePath, filePath, status);
 		if (status != 0) {
-			// TODO: rename
-			LitDifference litDifference(alteredFilePath, filePath, result);
-			differences.emplace_back(litDifference);
+			Differences difference(alteredFilePath, filePath, result);
+			differences.emplace_back(difference);
 			noDifference = false;
 		}
 	}
@@ -126,9 +122,9 @@ void removeRemovedFiles(const std::list<std::string> &removedFiles)
 	}
 }
 
-void applyChanges(const std::list<LitDifference> &differences)
+void applyChanges(const std::list<Differences> &differences)
 {
-	for (const LitDifference &difference : differences) {
+	for (const Differences &difference : differences) {
 		int status;
 		execPatch(difference, status);
 	}
@@ -141,7 +137,7 @@ void restoreCurrentlyCommittedFiles(std::string revisionNumber)
 
 	std::list<std::string> commitNumberList;
 	// by design r0 is our initial commit and if we iterate through every parent commit, we have to end up here.
-	while (revisionNumber != "r0") {
+	while (!revisionNumber.empty()) {
 		commitNumberList.push_front(revisionNumber);
 		revisionNumber = getParentCommit(revisionNumber);
 	}
@@ -194,7 +190,7 @@ std::string strFromStringList(const std::list<std::string> &list)
 	return str;
 }
 
-std::string strFromDifferenceList(const std::list<LitDifference> &list)
+std::string strFromDifferenceList(const std::list<Differences> &list)
 {
 	std::string str;
 	for (const auto &piece : list)
@@ -203,7 +199,7 @@ std::string strFromDifferenceList(const std::list<LitDifference> &list)
 }
 
 bool ObtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<std::string> &addedFiles, std::list<std::string> &removedFiles,
-                                 std::list<LitDifference> &differences)
+                                 std::list<Differences> &differences)
 {
 	restoreCurrentlyCommittedFiles(revisionNumber);
 
@@ -215,7 +211,6 @@ bool ObtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<st
 	listFiles(".lit/currentCommit/", committedFiles);
 
 	for (const auto &file : repoFiles) {
-		// todo: make this better
 		noDifference = compareToCurrentCommit(file, differences, addedFiles) && noDifference;
 	}
 

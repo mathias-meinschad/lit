@@ -1,4 +1,4 @@
-#include "../Lit/LitStructs.h"
+#include "LitStructs.h"
 #include <list>
 #include <string>
 
@@ -13,7 +13,7 @@ void increaseRevisionNumber();
 
 std::string getCurrentCommit();
 
-bool compareToCurrentCommit(const std::string &filePath, std::list<LitDifference> &differences,
+bool compareToCurrentCommit(const std::string &filePath, std::list<Differences> &differences,
                             std::list<std::string> &addedFiles);
 
 std::string getParentCommit(const std::string &revisionNumber);
@@ -24,7 +24,7 @@ void restoreAddedFiles(const std::list<std::string> &addedFiles, const std::stri
 
 void removeRemovedFiles(const std::list<std::string> &removedFiles);
 
-void applyChanges(const std::list<LitDifference> &differences);
+void applyChanges(const std::list<Differences> &differences);
 
 void restoreCurrentlyCommittedFiles(std::string revisionNumber);
 
@@ -38,7 +38,7 @@ std::string GetRevisionNumberOfBranch(const std::string &branchName);
 
 std::string strFromStringList(const std::list<std::string> &list);
 
-std::string strFromDifferenceList(const std::list<LitDifference> &list);
+std::string strFromDifferenceList(const std::list<Differences> &list);
 
 bool ObtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<std::string> &addedFiles,
-                                 std::list<std::string> &removedFiles, std::list<LitDifference> &differences);
+                                 std::list<std::string> &removedFiles, std::list<Differences> &differences);
