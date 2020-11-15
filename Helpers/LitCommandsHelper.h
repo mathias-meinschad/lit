@@ -28,17 +28,22 @@ void applyChanges(const std::list<Differences> &differences);
 
 void restoreCurrentlyCommittedFiles(std::string revisionNumber);
 
-void CopyAddedFiles(const std::string &revisionNrDirectory, const std::list<std::string> &addedFiles);
+void copyAddedFiles(const std::string &revisionNrDirectory, const std::list<std::string> &addedFiles);
 
 bool isRevisionNumberOk(const std::string &revisionNumber);
 
-bool BranchExists(const std::string &branchName);
+bool branchExists(const std::string &branchName);
 
-std::string GetRevisionNumberOfBranch(const std::string &branchName);
+std::string getRevisionNumberOfBranch(const std::string &branchName);
 
 std::string strFromStringList(const std::list<std::string> &list);
 
 std::string strFromDifferenceList(const std::list<Differences> &list);
 
-bool ObtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<std::string> &addedFiles,
+bool obtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<std::string> &addedFiles,
                                  std::list<std::string> &removedFiles, std::list<Differences> &differences);
+
+void mergeWithoutConflicts(const std::list<std::string> &removedFiles);
+
+void mergeWithConflicts(std::list<std::string> &removedFiles, std::list<Differences> &differences,
+                        const std::string &currentCommit, const std::string &mergeCommit);

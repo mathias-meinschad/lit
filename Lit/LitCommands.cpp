@@ -6,23 +6,16 @@
 #include <LitCommandsHelper.h>
 #include <cstring>
 #include <ctime>
-#include <dirent.h>
 #include <iostream>
-#include <sys/stat.h>
 
 void commit(const std::string &commitMsg, const std::string &parentCommit2);
 
-void RepoCheck()
+void litClear()
 {
-	DIR *dir = opendir(".lit");
-	if (!dir) {
-		std::cout << "repository has to be initialized" << std::endl;
+	if (!repoCheck()) {
+        std::cout << "repository has to be initialized..." << std::endl;
+		return;
 	}
-}
-
-void executeClear()
-{
-	RepoCheck();
 
 	std::cout << "Are you sure you want to remove the repository. (Y/N) " << std::endl;
 	char c;
@@ -34,62 +27,17 @@ void executeClear()
 	}
 }
 
-void executeLog(int args, char **argv)
+void litLog(int args, char **argv)
 {
 	std::cout << "not implemented..." << std::endl;
 }
 
-// todo: refactor this to litCommandsHelper
-void MergeWithoutConflicts(const std::list<std::string> &removedFiles)
+void litMerge(int args, char **argv)
 {
-	for (const std::string &removedFile : removedFiles) {
-		copyFileAndDirectories(CURRENT_COMMIT + removedFile.substr(2, removedFile.length() - 2), "./" + removedFile);
-	}
-}
-
-// todo: refactor this to litCommandsHelper
-// I know this method is not performant at all because it is O(n^2)
-// If I have more time I would use a tree structure and search with this structure for the common base
-std::string CommonBaseOfBranches(std::string currentCommitNr, std::string mergeCommitNr)
-{
-	auto tmp = mergeCommitNr;
-	while (!currentCommitNr.empty()) {
-		mergeCommitNr = tmp;
-		while (!mergeCommitNr.empty()) {
-			if (currentCommitNr == mergeCommitNr) {
-				return currentCommitNr;
-			}
-			mergeCommitNr = getParentCommit(mergeCommitNr);
-		}
-		currentCommitNr = getParentCommit(currentCommitNr);
-	}
-	return {};
-}
-
-// todo: refactor this to litCommandsHelper
-void MergeWithConflicts(std::list<std::string> &removedFiles, std::list<Differences> &differences,
-                        const std::string &currentCommit, const std::string &mergeCommit)
-{
-	std::string commonBaseBranch = CommonBaseOfBranches(currentCommit, mergeCommit);
-	for (const std::string &removedFile : removedFiles) {
-        copyFileAndDirectories(CURRENT_COMMIT + removedFile.substr(2, removedFile.length() - 2), "./" + removedFile);
-	}
-	for (const Differences &difference : differences) {
-		copyFileAndDirectories(difference.srcFile, "./" + difference.destFile + "." + mergeCommit);
-	}
-	if (!commonBaseBranch.empty()) {
-		restoreCurrentlyCommittedFiles(commonBaseBranch);
-
-		for (const Differences &difference : differences) {
-			copyFileAndDirectories(difference.srcFile,
-			                       "./" + difference.destFile + "." + commonBaseBranch);
-		}
-	}
-}
-
-void executeMerge(int args, char **argv)
-{
-	RepoCheck();
+    if (!repoCheck()) {
+        std::cout << "repository has to be initialized..." << std::endl;
+        return;
+    }
 
 	if (args < 3) {
 		// todo: display usage
@@ -100,8 +48,8 @@ void executeMerge(int args, char **argv)
 	auto currentCommitNr = getCurrentCommit();
 	std::string mergeCommitNr = argv[2];
 
-	if (BranchExists(mergeCommitNr)) {
-		mergeCommitNr = GetRevisionNumberOfBranch(mergeCommitNr);
+	if (branchExists(mergeCommitNr)) {
+		mergeCommitNr = getRevisionNumberOfBranch(mergeCommitNr);
 	}
 
 	if (!isRevisionNumberOk(mergeCommitNr)) {
@@ -111,26 +59,29 @@ void executeMerge(int args, char **argv)
 	std::list<Differences> differences;
 	std::list<std::string> addedFiles;
 	std::list<std::string> removedFiles;
-	bool noDifference = ObtainDifferenceToWorkspace(currentCommitNr, addedFiles, removedFiles, differences);
+	bool noDifference = obtainDifferenceToWorkspace(currentCommitNr, addedFiles, removedFiles, differences);
 	if (!noDifference) {
 		std::cout << "cannot merge when there are uncommitted changes..." << std::endl;
 		return;
 	}
 	differences = {};
-	ObtainDifferenceToWorkspace(mergeCommitNr, addedFiles, removedFiles, differences);
+	obtainDifferenceToWorkspace(mergeCommitNr, addedFiles, removedFiles, differences);
 	if (differences.empty()) {
-		MergeWithoutConflicts(removedFiles);
+		mergeWithoutConflicts(removedFiles);
 		commit("Merge " + mergeCommitNr + " into " + currentCommitNr, mergeCommitNr);
         std::cout << "merge was successful..." << std::endl;
 	} else {
-		MergeWithConflicts(removedFiles, differences, currentCommitNr, mergeCommitNr);
+		mergeWithConflicts(removedFiles, differences, currentCommitNr, mergeCommitNr);
 		std::cout << "merge has conflicts; please resolve them and commit then..." << std::endl;
 	}
 }
 
-void executeShow(int args, char **argv)
+void litShow(int args, char **argv)
 {
-	RepoCheck();
+    if (!repoCheck()) {
+        std::cout << "repository has to be initialized..." << std::endl;
+        return;
+    }
 
 	std::string commitNumber;
 	if (args > 2) {
@@ -156,15 +107,18 @@ void executeShow(int args, char **argv)
 	std::cout << strFromDifferenceList(commit.differences);
 }
 
-void executeStatus(int args, char **argv)
+void litStatus(int args, char **argv)
 {
-	RepoCheck();
+    if (!repoCheck()) {
+        std::cout << "repository has to be initialized..." << std::endl;
+        return;
+    }
 
 	std::string currentCommit = getCurrentCommit();
 	std::list<Differences> differences;
 	std::list<std::string> addedFiles;
 	std::list<std::string> removedFiles;
-	ObtainDifferenceToWorkspace(currentCommit, addedFiles, removedFiles, differences);
+	obtainDifferenceToWorkspace(currentCommit, addedFiles, removedFiles, differences);
 
 	for (const auto &addedFile : addedFiles) {
 		std::cout << "A\t" << addedFile << std::endl;
@@ -179,10 +133,10 @@ void executeStatus(int args, char **argv)
 	}
 }
 
-void executeInit()
+void litInit()
 {
-	if (std::filesystem::exists(".lit")) {
-		std::cout << " repository has already been initialized; call clear if you want to remove it..." << std::endl;
+	if (repoCheck()) {
+		std::cout << " repository has already been initialized; use 'lit clear' if you want to remove it..." << std::endl;
 		return;
 	}
 
@@ -211,9 +165,16 @@ void executeInit()
 	std::cout << "initializing repository was successful..." << std::endl;
 }
 
-void executeHelp(int args, char **argv)
+void litHelp(int args, char **argv)
 {
-	RepoCheck();
+    std::cout << "'lit init': is used to initialize the repository" << std::endl;
+    std::cout << "'lit clear': is used to remove the .lit folder" << std::endl;
+    std::cout << "'lit status': lists changes in the working area" << std::endl;
+    std::cout << "'lit commit': is used to commit the current changes" << std::endl;
+    std::cout << "'lit show [commitNr]': is used to inspect a given commit" << std::endl;
+    std::cout << "'lit checkout [-b] [branch|commit]': is used to create a branch (-b flag) or to checkout another commit or branch" << std::endl;
+    std::cout << "'lit merge [branch|commitNr]': merges a commit or a branch into the currently checked out commit" << std::endl;
+
 }
 
 void createNewBranch(const std::string &branchName, const std::string &currentRevisionNumber)
@@ -222,9 +183,12 @@ void createNewBranch(const std::string &branchName, const std::string &currentRe
 	setHead(branchName);
 }
 
-void executeCheckout(int args, char **argv)
+void litCheckout(int args, char **argv)
 {
-	RepoCheck();
+    if (!repoCheck()) {
+        std::cout << "repository has to be initialized..." << std::endl;
+        return;
+    }
 
 	std::string currentCommit = getCurrentCommit();
 	std::string branchName;
@@ -244,8 +208,8 @@ void executeCheckout(int args, char **argv)
 
 	std::string revisionNumber;
 	// First I check if the branch exists
-	if (BranchExists(branchName)) {
-		revisionNumber = GetRevisionNumberOfBranch(branchName);
+	if (branchExists(branchName)) {
+		revisionNumber = getRevisionNumberOfBranch(branchName);
 		setHead(branchName);
 	} else {
 		// if the branch does not exists I will try to check out a commit (revisionNumber)
@@ -258,11 +222,11 @@ void executeCheckout(int args, char **argv)
 	}
 
 	restoreCurrentlyCommittedFiles(revisionNumber);
-	CopyCommitToWorkingArea();
+	copyCommitToWorkingArea();
 	std::cout << "successfully checked out branch: " << branchName << std::endl;
 }
 
-// pulled this function out of executeCommit so i can reuse this in the executeMerge function
+// pulled this function out of litCommit so i can reuse this in the litMerge function
 void commit(const std::string &commitMsg, const std::string &parentCommit2)
 {
 	std::string revisionNumber = getCurrentRevisionNumber();
@@ -275,7 +239,7 @@ void commit(const std::string &commitMsg, const std::string &parentCommit2)
 	std::list<Differences> differences;
 	std::list<std::string> addedFiles;
 	std::list<std::string> removedFiles;
-	bool noDifference = ObtainDifferenceToWorkspace(currentCommit, addedFiles, removedFiles, differences);
+	bool noDifference = obtainDifferenceToWorkspace(currentCommit, addedFiles, removedFiles, differences);
 
 	if (noDifference) {
 		std::cout << "nothing to commit..." << std::endl;
@@ -287,7 +251,7 @@ void commit(const std::string &commitMsg, const std::string &parentCommit2)
 		std::cout << "Problem while adding a directory. Please check the access rights." << std::endl;
 		return;
 	}
-	CopyAddedFiles(revisionNrDirectory + "/", addedFiles);
+	copyAddedFiles(revisionNrDirectory + "/", addedFiles);
 
 	time_t t = time(nullptr); // get time now
 	tm *now = localtime(&t);
@@ -305,9 +269,12 @@ void commit(const std::string &commitMsg, const std::string &parentCommit2)
 	          << "Date: " << dateTimeString << std::endl;
 }
 
-void executeCommit(int args, char **argv)
+void litCommit(int args, char **argv)
 {
-	RepoCheck();
+    if (!repoCheck()) {
+        std::cout << "repository has to be initialized..." << std::endl;
+        return;
+    }
 
 	if (args < 3) {
 		// todo: display usage

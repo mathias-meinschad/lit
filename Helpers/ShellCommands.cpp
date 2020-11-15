@@ -3,9 +3,7 @@
 #include "Constants.h"
 #include "FileSystemHelper.h"
 #include <array>
-#include <fstream>
 #include <iostream>
-#include <sstream>
 #include <stdexcept>
 #include <string>
 
@@ -52,7 +50,7 @@ int clearFile(const std::string &patchFile)
 
 std::string execPatch(const Differences &difference, int &status)
 {
-	std::string patchFileName = PATCH_PATH + "test.patch";
+	std::string patchFileName = PATCH_PATH + "patch";
 	saveContentToFile(patchFileName, difference.diffOutput);
 	std::stringstream cmd;
 	cmd << "patch -u " << difference.srcFile << " -i " << patchFileName;

@@ -3,20 +3,20 @@
 
 #endif // LIT_LITCOMMANDS_H
 
-void executeClear();
+void litClear();
 
-void executeCommit(int args, char **argv);
+void litCommit(int args, char **argv);
 
-void executeHelp(int args, char **argv);
+void litHelp(int args, char **argv);
 
-void executeInit();
+void litInit();
 
-void executeStatus(int args, char **argv);
+void litStatus(int args, char **argv);
 
-void executeShow(int args, char **argv);
+void litShow(int args, char **argv);
 
-void executeCheckout(int args, char **argv);
+void litCheckout(int args, char **argv);
 
-void executeMerge(int args, char **argv);
+void litMerge(int args, char **argv);
 
-void executeLog(int args, char **argv);
+void litLog(int args, char **argv);

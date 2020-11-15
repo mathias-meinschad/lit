@@ -5,18 +5,26 @@
 #include <fstream>
 #include <iostream>
 
-std::filesystem::path stripRoot(const std::filesystem::path &p)
+namespace fs = std::filesystem;
+
+// basic check if lit folder is there
+bool repoCheck()
 {
-	const std::filesystem::path &parent_path = p.parent_path();
+	return fs::exists(LIT_PATH);
+}
+
+fs::path stripRoot(const fs::path &p)
+{
+	const fs::path &parent_path = p.parent_path();
 	if (parent_path.empty() || parent_path.string() == "/")
-		return std::filesystem::path();
+		return fs::path();
 	else
 		return stripRoot(parent_path) / p.filename();
 }
 
 bool hasFileBeenRemoved(const std::string &file, std::list<std::string> &removedFiles)
 {
-	std::filesystem::path pathToFile(file);
+	fs::path pathToFile(file);
 	// strip root twice to get ride of .lit/currentCommit
 	pathToFile = stripRoot(pathToFile);
 	pathToFile = stripRoot(pathToFile);
@@ -34,8 +42,8 @@ bool hasFileBeenRemoved(const std::string &file, std::list<std::string> &removed
 
 bool copyFileAndDirectories(const std::string &src, const std::string &dest)
 {
-	std::filesystem::path pathToDest(dest);
-	std::filesystem::create_directories(pathToDest.remove_filename());
+	fs::path pathToDest(dest);
+	fs::create_directories(pathToDest.remove_filename());
 	std::ifstream srcFile(src, std::ios::binary);
 	std::ofstream destFile(dest, std::ios::binary);
 	destFile << srcFile.rdbuf();
@@ -44,12 +52,12 @@ bool copyFileAndDirectories(const std::string &src, const std::string &dest)
 
 void removeFileAndDirectories(const std::string &src)
 {
-	std::filesystem::path pathToSrc(src);
-	if (std::filesystem::remove(pathToSrc)) {
+	fs::path pathToSrc(src);
+	if (fs::remove(pathToSrc)) {
 		auto pathWithoutFile = pathToSrc.parent_path();
 		while (pathWithoutFile != "./") {
-			if (std::filesystem::is_empty(pathWithoutFile)) {
-				std::filesystem::remove(pathWithoutFile);
+			if (fs::is_empty(pathWithoutFile)) {
+				fs::remove(pathWithoutFile);
 				pathWithoutFile = pathWithoutFile.parent_path();
 			} else {
 				return;
@@ -58,12 +66,12 @@ void removeFileAndDirectories(const std::string &src)
 	}
 }
 
-void CopyCommitToWorkingArea()
+void copyCommitToWorkingArea()
 {
 	system("rm -rf *");
-	std::filesystem::path pathToSrc(CURRENT_COMMIT);
-	std::filesystem::path pathToDest("./");
-	std::filesystem::copy(pathToSrc, pathToDest, std::filesystem::copy_options::recursive);
+	fs::path pathToSrc(CURRENT_COMMIT);
+	fs::path pathToDest("./");
+	fs::copy(pathToSrc, pathToDest, fs::copy_options::recursive);
 }
 
 void listFiles(const std::string &path, std::list<std::string> &files)
@@ -110,8 +118,8 @@ void setRefs(const std::string &revisionNumber)
 void saveContentToFile(const std::string &filename, const std::string &content, bool createMissingDirectories)
 {
 	if (createMissingDirectories) {
-		std::filesystem::path pathToDest(filename);
-		std::filesystem::create_directories(pathToDest.remove_filename());
+		fs::path pathToDest(filename);
+		fs::create_directories(pathToDest.remove_filename());
 	}
 	std::ofstream outfile(filename);
 	if (!outfile) {

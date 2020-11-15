@@ -2,42 +2,35 @@
 #include <cstring>
 #include <iostream>
 
-void showUsageHelp();
-
 int main(int args, char **argv)
 {
 	if (args < 2) {
-		showUsageHelp();
+        std::cout << "wrong usage of lit..." << std::endl;
+        std::cout << "please use 'lit help' for more information about usage of lit..." << std::endl;
 		return 0;
 	}
 
 	if (strcmp(argv[1], "help") == 0) {
-		executeHelp(args, argv);
+		litHelp(args, argv);
 	} else if (strcmp(argv[1], "clear") == 0) {
-		executeClear();
+		litClear();
 	} else if (strcmp(argv[1], "init") == 0) {
-		executeInit();
+		litInit();
 	} else if (strcmp(argv[1], "status") == 0) {
-		executeStatus(args, argv);
+		litStatus(args, argv);
 	} else if (strcmp(argv[1], "commit") == 0) {
-		executeCommit(args, argv);
+		litCommit(args, argv);
 	} else if (strcmp(argv[1], "show") == 0) {
-		executeShow(args, argv);
+		litShow(args, argv);
 	} else if (strcmp(argv[1], "checkout") == 0) {
-		executeCheckout(args, argv);
+		litCheckout(args, argv);
 	} else if (strcmp(argv[1], "merge") == 0) {
-		executeMerge(args, argv);
+		litMerge(args, argv);
 	} else if (strcmp(argv[1], "log") == 0) {
-		executeLog(args, argv);
+		litLog(args, argv);
 	} else {
-		std::cout << "'" << argv[1] << "'" << " is not a lit command. See 'lit help'" << std::endl;
+		std::cout << "'" << argv[1] << "'" << " is not a lit command. Use 'lit help' for usage information..." << std::endl;
 	}
 
 	return 0;
-}
-
-void showUsageHelp()
-{
-	// TODO: add usage help here:
-	std::cout << "later you can see some usage help here" << std::endl;
 }

@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 
-bool BranchExists(const std::string &branchName)
+bool branchExists(const std::string &branchName)
 {
 	std::ifstream branchFile(REFS + branchName);
 	if (branchFile.is_open()) {
@@ -17,7 +17,7 @@ bool BranchExists(const std::string &branchName)
 	return false;
 }
 
-std::string GetRevisionNumberOfBranch(const std::string &branchName)
+std::string getRevisionNumberOfBranch(const std::string &branchName)
 {
 	std::ifstream branchFile(REFS + branchName);
 	if (branchFile.is_open()) {
@@ -151,7 +151,7 @@ void restoreCurrentlyCommittedFiles(std::string revisionNumber)
 	}
 }
 
-void CopyAddedFiles(const std::string &revisionNrDirectory, const std::list<std::string> &addedFiles)
+void copyAddedFiles(const std::string &revisionNrDirectory, const std::list<std::string> &addedFiles)
 {
 	for (const std::string &addedFile : addedFiles) {
 		copyFileAndDirectories("./" + addedFile, revisionNrDirectory + addedFile);
@@ -198,7 +198,7 @@ std::string strFromDifferenceList(const std::list<Differences> &list)
 	return str;
 }
 
-bool ObtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<std::string> &addedFiles, std::list<std::string> &removedFiles,
+bool obtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<std::string> &addedFiles, std::list<std::string> &removedFiles,
                                  std::list<Differences> &differences)
 {
 	restoreCurrentlyCommittedFiles(revisionNumber);
@@ -221,4 +221,49 @@ bool ObtainDifferenceToWorkspace(const std::string &revisionNumber, std::list<st
 	}
 
 	return noDifference;
+}
+
+void mergeWithoutConflicts(const std::list<std::string> &removedFiles)
+{
+    for (const std::string &removedFile : removedFiles) {
+        copyFileAndDirectories(CURRENT_COMMIT + removedFile.substr(2, removedFile.length() - 2), "./" + removedFile);
+    }
+}
+
+// I know this method is not performant at all because it is O(n^2)
+// If I have more time I would use a tree structure and search with this structure for the common base
+std::string commonBaseOfBranches(std::string currentCommitNr, std::string mergeCommitNr)
+{
+    auto tmp = mergeCommitNr;
+    while (!currentCommitNr.empty()) {
+        mergeCommitNr = tmp;
+        while (!mergeCommitNr.empty()) {
+            if (currentCommitNr == mergeCommitNr) {
+                return currentCommitNr;
+            }
+            mergeCommitNr = getParentCommit(mergeCommitNr);
+        }
+        currentCommitNr = getParentCommit(currentCommitNr);
+    }
+    return {};
+}
+
+void mergeWithConflicts(std::list<std::string> &removedFiles, std::list<Differences> &differences,
+                        const std::string &currentCommit, const std::string &mergeCommit)
+{
+    std::string commonBaseBranch = commonBaseOfBranches(currentCommit, mergeCommit);
+    for (const std::string &removedFile : removedFiles) {
+        copyFileAndDirectories(CURRENT_COMMIT + removedFile.substr(2, removedFile.length() - 2), "./" + removedFile);
+    }
+    for (const Differences &difference : differences) {
+        copyFileAndDirectories(difference.srcFile, "./" + difference.destFile + "." + mergeCommit);
+    }
+    if (!commonBaseBranch.empty()) {
+        restoreCurrentlyCommittedFiles(commonBaseBranch);
+
+        for (const Differences &difference : differences) {
+            copyFileAndDirectories(difference.srcFile,
+                                   "./" + difference.destFile + "." + commonBaseBranch);
+        }
+    }
 }
