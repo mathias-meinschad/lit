@@ -29,7 +29,7 @@ void litClear()
 
 void litLog(int args, char **argv)
 {
-	std::cout << "not implemented..." << std::endl;
+	std::cout << "log is not implemented..." << std::endl;
 }
 
 void litMerge(int args, char **argv)
@@ -40,8 +40,7 @@ void litMerge(int args, char **argv)
     }
 
 	if (args < 3) {
-		// todo: display usage
-		std::cout << "wrong usage of merge..." << std::endl;
+        std::cout << "wrong usage of commit, use help to obtain more information about usage of lit merge..." << std::endl;
 		return;
 	}
 
@@ -277,8 +276,7 @@ void litCommit(int args, char **argv)
     }
 
 	if (args < 3) {
-		// todo: display usage
-		std::cout << "wrong usage of commit..." << std::endl;
+		std::cout << "wrong usage of commit, use help to obtain more information about usage of lit commit..." << std::endl;
 		return;
 	}
 
