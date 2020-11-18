@@ -23,4 +23,4 @@ I hope this is still ok.
 * After a commit after merge with conflicts you cannot see both parent commits, because I wasnt able to find a way to differentiate between a normal commit or a commit after a merge with conflicts
 
 * Log is missing. Reason: I had a cast for 2 weeks (I was not able to program anything) and I had some time issues to finish everything.
-Because of the time issues I also did not have a lot iof time for refactoring the code :(
+Because of the time issues I also did not have a lot of time for refactoring the code :(
