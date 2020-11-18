@@ -6,11 +6,19 @@
 #endif // LIT_FILESYSTEMHELPER_H
 
 bool repoCheck();
+
 bool hasFileBeenRemoved(const std::string &file, std::list<std::string> &removedFiles);
+
 void listFiles(const std::string &path, std::list<std::string> &files);
+
 bool copyFileAndDirectories(const std::string &src, const std::string &dest);
+
 void removeFileAndDirectories(const std::string &src);
+
 void setRefs(const std::string &revisionNumber);
+
 void setHead(const std::string &branch);
+
 void copyCommitToWorkingArea();
+
 void saveContentToFile(const std::string &filename, const std::string &content, bool createMissingDirectories = false);

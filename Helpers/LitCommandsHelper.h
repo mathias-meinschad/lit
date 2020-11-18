@@ -18,8 +18,6 @@ bool compareToCurrentCommit(const std::string &filePath, std::list<Differences> 
 
 std::string getParentCommit(const std::string &revisionNumber);
 
-std::string getParentCommit(const std::string &revisionNumber);
-
 void restoreAddedFiles(const std::list<std::string> &addedFiles, const std::string &revisionNrDirectory);
 
 void removeRemovedFiles(const std::list<std::string> &removedFiles);

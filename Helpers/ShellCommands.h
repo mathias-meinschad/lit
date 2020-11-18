@@ -8,4 +8,5 @@
 #endif // LIT_SHELLCOMMANDS_H
 
 std::string execPatch(const Differences &difference, int &status);
+
 std::string execDiff(const std::string &dst, const std::string &src, int &status);

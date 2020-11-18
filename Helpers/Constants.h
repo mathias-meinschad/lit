@@ -5,9 +5,15 @@
 #endif // LIT_CONSTANTS_H
 
 extern const std::string LIT_PATH;
+
 extern const std::string CURRENT_REVISION_NUMBER_PATH;
+
 extern const std::string COMMITS_PATH;
+
 extern const std::string HEAD;
+
 extern const std::string PATCH_PATH;
+
 extern const std::string CURRENT_COMMIT;
+
 extern const std::string REFS;
